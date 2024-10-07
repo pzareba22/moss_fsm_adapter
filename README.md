@@ -52,5 +52,6 @@ comparisons with embeddings  : 0
 - We want to return the output in some format to be parsed by the user right?
 - Is there any expected output format?
 - What is the expected input format? is it compatible with .smi files?
+- can we use GraalVM to run this code?
 
  
