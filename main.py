@@ -1,40 +1,27 @@
-from jpype import startJVM, shutdownJVM, java, JClass
-
-## TODO: THIS DOES NOT WORK YET
-
-def execute_java_method():
-    # Start the JVM
-    startJVM(convertStrings=False)
-
-    try:
-        # Import the necessary Java classes
-        MyJavaClass = JClass("moss.moss.MyJavaClass")
-
-        # Create an instance of the Java class
-        my_instance = MyJavaClass()
-
-        # Call the Java method
-        result = my_instance.myMethod("Hello from Python!")
-
-        # Print the result
-        print(f"Result from Java: {result}")
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-    finally:
-        # Shutdown the JVM
-        shutdownJVM()
+import subprocess
 
 
-# Define the Java class
-class MyJavaClass:
-    def __init__(self):
-        pass
+def run_moss():
+    # Define the command to run
+    command = ["bash", "./run.sh"]
 
-    def myMethod(self, input_string):
-        return f"This is the result from Java: {input_string}"
+    # Run the command and capture the output
+    result = subprocess.run(command, capture_output=True, text=True)
+
+    # Check if the command was successful
+    if result.returncode != 0:
+        print("Error running MoSS:", result.stderr)
+        return
+
+    # Parse the output
+    output = result.stdout + result.stderr
+    parse_output(output)
 
 
-# Execute the function
-execute_java_method()
+def parse_output(output):
+    # Print raw output (optional)
+    print("Raw Output:\n", output)
+
+
+# Run the function
+run_moss()
