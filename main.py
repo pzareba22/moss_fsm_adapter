@@ -14,7 +14,8 @@ def run_moss():
         return
 
     # Parse the output
-    output = result.stdout + result.stderr
+    output = result.stdout
+    # there's some data in result.stderr
     parse_output(output)
 
 

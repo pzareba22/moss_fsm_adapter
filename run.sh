@@ -1,10 +1,15 @@
 #!/bin/bash
 
-cd ./moss
+# cd ./moss
 
-CLASSPATH="..:moss.jar"; export CLASSPATH
+# run moss.jar file
 
-java moss.Miner data/example1.smi -jS -s50 -v $*
+java -cp moss.jar moss.Miner  ./moss/data/example1.smi -jS -s50 -v $*
+
+
+# CLASSPATH="..:moss.jar"; export CLASSPATH
+
+# java moss.Miner data/example1.smi -jS -s50 -v $*
 
 #java moss.Miner data/example2.smi -jS -s-2 -v $*
 #java moss.Miner data/noperfect.smi -jN -s100 -v $*
