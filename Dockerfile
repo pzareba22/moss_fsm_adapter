@@ -1,16 +1,16 @@
 # syntax=docker/dockerfile:1
-FROM ghcr.io/graalvm/native-image:ol8-java17-22.3.3 AS build
+FROM ghcr.io/graalvm/native-image-community:17 as build
+COPY ./moss /home/moss/moss
 
-COPY ./moss /home/moss
 WORKDIR /home/moss
 
 RUN echo "Main-Class: moss.Miner" > manifest
-RUN jar cfm miner.jar manifest moss/*.class
-RUN rm -f manifest
-
-RUN native-image -jar miner.jar miner_1
+run javac -Xlint moss/*.java
+run jar cfm miner.jar manifest moss/*.class
 
 
-FROM scratch
-COPY --from=build /home/moss/miner_1 /
-ENTRYPOINT ["/miner_1"]
+run native-image -jar miner.jar miner_1
+
+from scratch
+copy --from=build /home/moss/miner_1 /
+entrypoint ["/miner_1"]
