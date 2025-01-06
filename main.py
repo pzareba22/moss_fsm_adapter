@@ -1,6 +1,7 @@
 import subprocess
 import tempfile
 import os
+import sys
 
 
 class Miner:
@@ -101,9 +102,10 @@ class Miner:
 
 # Example usage
 if __name__ == "__main__":
+    input_file = sys.argv[1]
     miner = Miner()
     output = miner.run(
-        "./moss/data/example1.smi",
+        input_file,
         jS=True,
         s=50,
         v=True,
