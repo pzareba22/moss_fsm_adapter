@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "uczenie-maszynowe-projekt"
+version = "0.1.0"
+description = ""
+authors = ["pzareba <p.zareba@avsystem.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.8"
+jupyterlab-vim = "^4.1.4"
+pandas = "^2.2.3"
+scikit-learn = "^1.6.1"
+scikit-fingerprints = "^1.12.0"
+ipywidgets = "^8.1.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

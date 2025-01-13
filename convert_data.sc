@@ -4,14 +4,20 @@ import scala.io.Source
 println("converting...")
 
 val inputFilePath = "./moleculenet/delaney-processed.csv"
-val outputFilePath = "./moleculenet/processed.csv"
+val outputFilePath = "./moleculenet/processed.smi"
 
-val lines = Source.fromFile(inputFilePath).getLines.toVector
+val lines = Source.fromFile(inputFilePath)("UTF-8").getLines.toVector
 val fileWriter = new FileWriter(new File(outputFilePath))
 
+
+fileWriter.write("id,value,description\n")
 lines.drop(1).zipWithIndex.foreach { case (line, index) => 
-  val smile = line.split(",").last
-  val newLine = "a" + "," + index.toString() + "," + smile + "\n"
+  val data = line.split(",")
+  val smile = data.last
+  val identifier = data.head
+  println(identifier)
+  println()
+  val newLine = identifier + "," + "0" + "," + smile + "\n"
   fileWriter.write(newLine)
 }
 
