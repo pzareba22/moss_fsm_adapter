@@ -12,6 +12,7 @@ pandas = "^2.2.3"
 scikit-learn = "^1.6.1"
 scikit-fingerprints = "^1.12.0"
 ipywidgets = "^8.1.5"
+pynvim = "^0.5.2"
 
 
 [build-system]
