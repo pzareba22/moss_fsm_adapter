@@ -16,7 +16,12 @@ W celu zaaplikowania programu MoSS do problemu klasyfikacji molekuł posłużył
 ![pipeline](./img/fsm_flow.png)
 
 ## 3. Rezultaty
-| Dataset | Klasyfikator | AUC    |
-| ------- | ------------ | ------ |
-| BACE    | RandomForest | 41.40% |
+| Dataset | Klasyfikator       | Wartość p  | AUC    |
+| ------- | ------------       | ---------- | ------ |
+| BACE    | RandomForest       |     19     | 53.44% |
+| BBBP    | RandomForest       |      3     | 66.20% |
+| HIV     | RandomForest       |      8     | 63.48% |
+| BACE    | LogisticRegression |     13     | 54.078 |
+| BBBP    | LogisticRegression |      3     | 66.92% |
+| HIV     | LogisticRegression |      8     | 63.18% |
 

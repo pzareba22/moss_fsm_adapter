@@ -8,7 +8,6 @@ RUN echo "Main-Class: moss.Miner" > manifest
 run javac -Xlint moss/*.java
 run jar cfm miner.jar manifest moss/*.class
 
-
 run native-image -jar miner.jar miner_1
 
 from scratch
